@@ -3,4 +3,8 @@
     <string name="title_draw_color">饼图</string>
     <string name="title_draw_shader">Shader</string>
     <string name="title_draw_color_filter">Color Filter</string>
+    <string name="title_draw_path_effect">轮廓</string>
+    <string name="title_draw_text">自定义字体</string>
+    <string name="title_mask_filter">Mask Filter</string>
+    <string name="title_underline">下划线</string>
 </resources>

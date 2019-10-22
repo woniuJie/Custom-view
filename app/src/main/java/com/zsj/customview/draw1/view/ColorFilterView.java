@@ -6,6 +6,8 @@ import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
 import android.graphics.LightingColorFilter;
 import android.graphics.Paint;
 import android.util.AttributeSet;
@@ -58,5 +60,12 @@ public class ColorFilterView extends View {
 
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.icon_header);
         canvas.drawBitmap(bitmap,200,200,mPaint);
+
+        ColorMatrix colorMatrix = new ColorMatrix();
+        colorMatrix.setSaturation(300);
+        ColorFilter colorFilter = new ColorMatrixColorFilter(colorMatrix);
+        Bitmap bitmap1 = BitmapFactory.decodeResource(getResources(),R.drawable.icon_hangzhou);
+        mPaint.setColorFilter(colorFilter);
+        canvas.drawBitmap(bitmap,200,700,mPaint);
     }
 }

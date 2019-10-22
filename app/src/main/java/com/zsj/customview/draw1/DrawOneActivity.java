@@ -26,6 +26,10 @@ public class DrawOneActivity extends AppCompatActivity {
         pageModels.add(new PageModel(R.string.title_draw_color, R.layout.practice_color));
         pageModels.add(new PageModel(R.string.title_draw_shader, R.layout.shader_color));
         pageModels.add(new PageModel(R.string.title_draw_color_filter, R.layout.color_filter));
+        pageModels.add(new PageModel(R.string.title_draw_path_effect, R.layout.path_effect_layout));
+        pageModels.add(new PageModel(R.string.title_mask_filter, R.layout.mask_filter_layout));
+        pageModels.add(new PageModel(R.string.title_draw_text, R.layout.text_shadow_layout));
+        pageModels.add(new PageModel(R.string.title_underline, R.layout.underline_layout));
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
