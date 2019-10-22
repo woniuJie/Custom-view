@@ -24,7 +24,8 @@ public class DrawOneActivity extends AppCompatActivity {
 
     {
         pageModels.add(new PageModel(R.string.title_draw_color, R.layout.practice_color));
-        pageModels.add(new PageModel(R.string.title_draw_color, R.layout.practice_color));
+        pageModels.add(new PageModel(R.string.title_draw_shader, R.layout.shader_color));
+        pageModels.add(new PageModel(R.string.title_draw_color_filter, R.layout.color_filter));
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
