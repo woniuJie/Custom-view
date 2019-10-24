@@ -1,49 +1,49 @@
-package com.zsj.customview.practice1.view;
+package com.zsj.customview.practice2.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.BitmapShader;
+import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.MaskFilter;
 import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.Rect;
+import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
 
 import androidx.annotation.Nullable;
 
+import com.zsj.customview.BitmapUtils;
 import com.zsj.customview.R;
 
-public class DrawBitmapView extends View {
+public class BlurMaskFilterView extends View {
 
     private Paint mPaint;
 
     private int width;
     private int height;
 
-    public DrawBitmapView(Context context) {
+    public BlurMaskFilterView(Context context) {
         super(context);
         init();
     }
 
-    public DrawBitmapView(Context context, @Nullable AttributeSet attrs) {
+    public BlurMaskFilterView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init();
 
     }
 
-    public DrawBitmapView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public BlurMaskFilterView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
 
     }
 
-    public void init() {
+    public void init(){
         mPaint = new Paint();
-        mPaint.setColor(Color.GRAY);
-        mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(60);
         mPaint.setAntiAlias(true);
     }
 
@@ -58,19 +58,16 @@ public class DrawBitmapView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        int middleW = width / 2;
-        int middleH = height / 2;
+        int middleW = width/2;
+        int middleH = height/2;
+        setLayerType(LAYER_TYPE_SOFTWARE, null);
+        Bitmap bitmap = BitmapUtils.decodeSampledBitmapFromResource(getResources(),R.drawable.fuck,120,120);
 
-        Rect rect = new Rect();
+        MaskFilter maskFilter = new BlurMaskFilter(100, BlurMaskFilter.Blur.NORMAL);
 
-        rect.left = middleW - 200;
-        rect.top = middleH - 200;
-        rect.right = middleW + 200;
-        rect.bottom = middleH + 200;
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.batman);
+        mPaint.setMaskFilter(maskFilter);
 
-
-        canvas.drawBitmap(bitmap, null, rect, mPaint);
+        canvas.drawBitmap(bitmap,50,50,mPaint);
 
 
     }

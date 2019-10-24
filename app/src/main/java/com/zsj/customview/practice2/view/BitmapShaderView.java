@@ -1,13 +1,14 @@
-package com.zsj.customview.practice1.view;
+package com.zsj.customview.practice2.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.Rect;
+import android.graphics.Shader;
+import android.graphics.SweepGradient;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -15,35 +16,35 @@ import androidx.annotation.Nullable;
 
 import com.zsj.customview.R;
 
-public class DrawBitmapView extends View {
+public class BitmapShaderView extends View {
 
     private Paint mPaint;
 
     private int width;
     private int height;
 
-    public DrawBitmapView(Context context) {
+    public BitmapShaderView(Context context) {
         super(context);
         init();
     }
 
-    public DrawBitmapView(Context context, @Nullable AttributeSet attrs) {
+    public BitmapShaderView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init();
 
     }
 
-    public DrawBitmapView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public BitmapShaderView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
 
     }
 
-    public void init() {
+    public void init(){
         mPaint = new Paint();
         mPaint.setColor(Color.GRAY);
-        mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(60);
+        mPaint.setStyle(Paint.Style.FILL_AND_STROKE);
+        mPaint.setStrokeWidth(5);
         mPaint.setAntiAlias(true);
     }
 
@@ -58,20 +59,16 @@ public class DrawBitmapView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
 
-        int middleW = width / 2;
-        int middleH = height / 2;
+        int middleW = width/2;
+        int middleH = height/2;
 
-        Rect rect = new Rect();
-
-        rect.left = middleW - 200;
-        rect.top = middleH - 200;
-        rect.right = middleW + 200;
-        rect.bottom = middleH + 200;
         Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.batman);
 
+        Shader shader = new BitmapShader(bitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP);
 
-        canvas.drawBitmap(bitmap, null, rect, mPaint);
+        mPaint.setShader(shader);
 
+        canvas.drawCircle(middleW,middleH-300,400,mPaint);
 
     }
 }

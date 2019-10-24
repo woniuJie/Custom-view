@@ -1,13 +1,15 @@
-package com.zsj.customview.practice1.view;
+package com.zsj.customview.practice2.view;
 
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.BitmapShader;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.ColorFilter;
+import android.graphics.LightingColorFilter;
 import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.Rect;
+import android.graphics.Shader;
 import android.util.AttributeSet;
 import android.view.View;
 
@@ -15,25 +17,25 @@ import androidx.annotation.Nullable;
 
 import com.zsj.customview.R;
 
-public class DrawBitmapView extends View {
+public class LightingColorFilterView extends View {
 
     private Paint mPaint;
 
     private int width;
     private int height;
 
-    public DrawBitmapView(Context context) {
+    public LightingColorFilterView(Context context) {
         super(context);
         init();
     }
 
-    public DrawBitmapView(Context context, @Nullable AttributeSet attrs) {
+    public LightingColorFilterView(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         init();
 
     }
 
-    public DrawBitmapView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public LightingColorFilterView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
 
@@ -41,9 +43,6 @@ public class DrawBitmapView extends View {
 
     public void init() {
         mPaint = new Paint();
-        mPaint.setColor(Color.GRAY);
-        mPaint.setStyle(Paint.Style.STROKE);
-        mPaint.setStrokeWidth(60);
         mPaint.setAntiAlias(true);
     }
 
@@ -61,16 +60,13 @@ public class DrawBitmapView extends View {
         int middleW = width / 2;
         int middleH = height / 2;
 
-        Rect rect = new Rect();
+        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.mipmap.a);
 
-        rect.left = middleW - 200;
-        rect.top = middleH - 200;
-        rect.right = middleW + 200;
-        rect.bottom = middleH + 200;
-        Bitmap bitmap = BitmapFactory.decodeResource(getResources(), R.drawable.batman);
+        ColorFilter colorFilter = new LightingColorFilter(0x00ffff, 0x000000);
 
+        mPaint.setColorFilter(colorFilter);
 
-        canvas.drawBitmap(bitmap, null, rect, mPaint);
+        canvas.drawBitmap(bitmap, middleW - bitmap.getWidth() / 2, middleH - bitmap.getHeight() / 2, mPaint);
 
 
     }

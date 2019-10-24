@@ -23,6 +23,15 @@ import com.zsj.customview.practice1.view.DrawPathView;
 import com.zsj.customview.practice1.view.DrawRectView;
 import com.zsj.customview.practice1.view.DrawRoundRectView;
 import com.zsj.customview.practice1.view.DrawTextView;
+import com.zsj.customview.practice2.view.BitmapShaderView;
+import com.zsj.customview.practice2.view.BlurMaskFilterView;
+import com.zsj.customview.practice2.view.ComposeShaderView;
+import com.zsj.customview.practice2.view.LightingColorFilterView;
+import com.zsj.customview.practice2.view.LinerGradientView;
+import com.zsj.customview.practice2.view.PathEffectView;
+import com.zsj.customview.practice2.view.RadialGradientView;
+import com.zsj.customview.practice2.view.StrokeJoinView;
+import com.zsj.customview.practice2.view.SweepGradientView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +47,15 @@ public class Practice2Activity extends AppCompatActivity {
 
 
         {
-            pageModels.add(new PageModel("画颜色", new DrawColorView(this)));
+            pageModels.add(new PageModel("线性渐变", new LinerGradientView(this)));
+            pageModels.add(new PageModel("辐射渐变", new RadialGradientView(this)));
+            pageModels.add(new PageModel("扫描渐变", new SweepGradientView(this)));
+            pageModels.add(new PageModel("BitmapShader", new BitmapShaderView(this)));
+            pageModels.add(new PageModel("混合Bitmap", new ComposeShaderView(this)));
+            pageModels.add(new PageModel("LightingColorFilter", new LightingColorFilterView(this)));
+            pageModels.add(new PageModel("StrokeJoin", new StrokeJoinView(this)));
+            pageModels.add(new PageModel("PathEffect", new PathEffectView(this)));
+            pageModels.add(new PageModel("BlurMaskFilter", new BlurMaskFilterView(this)));
 
         }
         pager = (ViewPager) findViewById(R.id.pager);
