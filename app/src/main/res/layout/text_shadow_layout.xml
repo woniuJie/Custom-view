@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.zsj.customview.draw1.view.TextShadowView
+    <com.zsj.customview.practice1.TextShadowView
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
 

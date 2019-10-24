@@ -7,4 +7,6 @@
     <string name="title_draw_text">自定义字体</string>
     <string name="title_mask_filter">Mask Filter</string>
     <string name="title_underline">下划线</string>
+    <string name="title_clip_xx">范围裁切</string>
+    <string name="title_canvas_bianhuan">Canvas 几何变换</string>
 </resources>

@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import com.zsj.customview.draw1.DrawOneActivity;
+import com.zsj.customview.practice1.Practice1Activity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onDrawOne(View view) {
-        Intent intent = new Intent(MainActivity.this, DrawOneActivity.class);
+        Intent intent = new Intent(MainActivity.this, Practice1Activity.class);
         startActivity(intent);
     }
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.zsj.customview.draw1.view.UnderlineView xmlns:android="http://schemas.android.com/apk/res/android"
+<com.zsj.customview.practice1.UnderlineView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -7,4 +7,4 @@
     app:text="High-quality (path)"
     app:type="path">
 
-</com.zsj.customview.draw1.view.UnderlineView>
+</com.zsj.customview.practice1.UnderlineView>
